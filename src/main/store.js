@@ -84,8 +84,6 @@ class Store {
   saveState() { this._write(this.stateFile, { ...this.state, sig: sign(this.state) }); }
   saveCache(cache) { this.cache = cache; this._write(this.cacheFile, cache); }
 
-  reset() { this.state = DEFAULT_STATE(); this.saveState(); }
-
   recordRound(round) {
     const s = this.state.stats;
     const won = round.won;

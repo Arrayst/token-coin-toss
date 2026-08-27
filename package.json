@@ -56,7 +56,8 @@
         }
       ]
     },
-    "asar": true
+    "asar": true,
+    "artifactName": "TokenCoinToss-${os}-${arch}.${ext}"
   },
   "author": "arrayst",
   "license": "MIT",
