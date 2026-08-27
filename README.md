@@ -11,15 +11,15 @@ Claude Code랑 Codex한테 태운 토큰이 코인으로 쌓인다.
 
 ## 다운로드
 
-<a href="https://github.com/Arrayst/token-coin-toss/releases/latest/download/Token.Coin.Toss-0.1.0-arm64.dmg">
+<a href="https://github.com/Arrayst/token-coin-toss/releases/latest/download/TokenCoinToss-mac-arm64.dmg">
 <img src="https://img.shields.io/badge/macOS-Apple_Silicon-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS 다운로드">
 </a>
 &nbsp;
-<a href="https://github.com/Arrayst/token-coin-toss/releases/latest/download/Token.Coin.Toss.Setup.0.1.0.exe">
+<a href="https://github.com/Arrayst/token-coin-toss/releases/latest/download/TokenCoinToss-win-x64-setup.exe">
 <img src="https://img.shields.io/badge/Windows-x64-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows 다운로드">
 </a>
 
-설치 없이 바로 쓰려면 [포터블 버전](https://github.com/Arrayst/token-coin-toss/releases/latest)도 있다.
+설치 없이 바로 쓰려면 [포터블 버전](https://github.com/Arrayst/token-coin-toss/releases/latest/download/TokenCoinToss-win-x64-portable.exe)도 있다.
 
 > 서명 안 된 앱이라 처음엔 경고가 뜬다.
 > **맥** 우클릭 → 열기 · **윈도우** "추가 정보" → "실행"
