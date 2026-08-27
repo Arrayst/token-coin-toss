@@ -4,6 +4,24 @@ Claude Code / Codex가 태운 토큰을 코인으로 적립하고, 그 코인으
 
 **토큰 1,000개 = 1코인.** 다 잃으면 일하러 가야 한다.
 
+## 다운로드
+
+[Releases](https://github.com/Arrayst/token-coin-toss/releases)에서 받는다.
+
+| 쓰는 곳 | 받을 파일 |
+|---|---|
+| 맥 (Apple Silicon) | `Token Coin Toss-x.y.z-arm64.dmg` |
+| 윈도우 (설치형) | `Token Coin Toss Setup x.y.z.exe` |
+| 윈도우 (설치 없이) | `Token Coin Toss x.y.z.exe` |
+
+서명된 앱이 아니라 첫 실행 때 경고가 뜬다. 아래 "설치 파일이 서명되지 않은 문제" 참고.
+
+Intel 맥용 빌드는 따로 올리지 않는다. 필요하면 직접 빌드하면 된다:
+
+```
+npm ci && npx electron-builder --mac --x64
+```
+
 ## 개인정보
 
 이 앱은 **로컬 로그 파일을 읽기만 한다.** 네트워크 코드가 없다.
