@@ -1,0 +1,62 @@
+name: release
+
+# v로 시작하는 태그를 밀면 맥/윈도우 설치 파일을 만들어 릴리스에 붙인다.
+# 각 OS의 네이티브 러너에서 빌드하므로 크로스 컴파일도 wine도 필요 없다.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-14         # Apple Silicon 러너 → arm64 dmg
+            script: build:mac
+            artifacts: |
+              dist/*.dmg
+              dist/*.zip
+          - os: windows-latest   # → x64 nsis / portable
+            script: build:win
+            artifacts: |
+              dist/*.exe
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run ${{ matrix.script }}
+        env:
+          # 코드서명 인증서가 없으므로 electron-builder의 서명 단계를 건너뛴다.
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.os }}
+          path: ${{ matrix.artifacts }}
+          if-no-files-found: error
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { path: artifacts }
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/**/*
+          generate_release_notes: true

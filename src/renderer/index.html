@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:;" />
+<title>Token Coin Toss</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">TOKEN <span>COIN TOSS</span></div>
+    <button id="rescan" class="ghost">↻ 새로고침</button>
+  </header>
+
+  <section class="vault">
+    <div class="label">보유 코인</div>
+    <div id="balance" class="balance">0</div>
+    <div id="delta" class="delta"></div>
+    <div class="sources">
+      <div class="src">
+        <b>CLAUDE</b>
+        <span id="claudeCoins">0</span>
+        <i id="claudeTok">–</i>
+      </div>
+      <div class="src">
+        <b>CODEX</b>
+        <span id="codexCoins">0</span>
+        <i id="codexTok">–</i>
+      </div>
+      <div class="src">
+        <b>도박 손익</b>
+        <span id="gambleDelta">0</span>
+        <i id="record">0승 0패</i>
+      </div>
+    </div>
+    <div id="scanline" class="scanline">스캔 준비 중…</div>
+  </section>
+
+  <section class="table">
+    <div id="coin" class="coin"><span id="coinFace">?</span></div>
+    <div id="verdict" class="verdict">얼마 걸래</div>
+
+    <div class="bet">
+      <input id="amount" type="number" min="1" step="1" placeholder="걸 코인" />
+      <div class="chips">
+        <button data-pct="0.1">10%</button>
+        <button data-pct="0.25">25%</button>
+        <button data-pct="0.5">half</button>
+        <button data-pct="1" class="allin">ALL IN</button>
+      </div>
+    </div>
+
+    <div class="picks">
+      <button id="odd" class="pick odd">홀<small>1 3 5 7 9</small></button>
+      <button id="even" class="pick even">짝<small>0 2 4 6 8</small></button>
+    </div>
+    <div id="err" class="err"></div>
+  </section>
+
+  <section class="log">
+    <div class="loghead">
+      <span>최근 기록</span>
+      <span id="record2"></span>
+    </div>
+    <ul id="history"></ul>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

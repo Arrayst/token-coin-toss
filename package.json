@@ -1,0 +1,76 @@
+{
+  "name": "token-coin-toss",
+  "version": "0.1.0",
+  "description": "Claude / Codex 토큰을 코인으로 적립하고 홀짝을 굴리는 브레인 쓰롯 앱",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:all": "electron-builder --mac --win"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "io.hama.tokencointoss",
+    "productName": "Token Coin Toss",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.games",
+      "extendInfo": {
+        "LSUIElement": true
+      }
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "asar": true
+  },
+  "author": "arrayst",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arrayst/token-coin-toss.git"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "codex",
+    "token",
+    "usage",
+    "electron",
+    "menubar"
+  ]
+}
